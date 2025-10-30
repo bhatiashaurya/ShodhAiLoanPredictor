@@ -1,0 +1,101 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Data files (large dataset)
+shodhAI_dataset/
+*.csv
+*.parquet
+*.feather
+
+# Model artifacts
+*.pkl
+*.pth
+*.h5
+*.ckpt
+models/
+checkpoints/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Processed outputs
+processed_features.csv
+processed_target.csv
+scaler.pkl
+
+# Documentation (keep only essential)
+VENV_SETUP_STATUS.md
+V10.5_APEX_COMPLETE.md
+V10_LEGENDARY_COMPLETE.md
+V10_QUICK_REFERENCE.md
+V11_ZENITH_COMPLETE.md
+V11_ZENITH_IMPLEMENTATION_SUMMARY.md
+V11_ZENITH_QUICK_REFERENCE.md
+V5_IMPLEMENTATION_COMPLETE.md
+V8_GRANDMASTER_COMPLETE.md
+ULTRA_ADVANCED_V5.md
+ADVANCED_IMPROVEMENTS.md
+ENHANCEMENT_JOURNEY.md
+ENSEMBLE_TRAINING.md
+ITERATIVE_TRAINING.md
+MODEL_IMPROVEMENTS.md
+PROJECT_COMPLETE_V10.md
+PROJECT_SUMMARY.md
+QUICK_START_ITERATIVE.md
+QUICK_START_V5.md
+QUICK_START_V8.md
+SETUP_GUIDE.md
+DOCUMENTATION_INDEX.md
+INDEX.md
+METRICS_EXPLAINED.md
+
+# Scripts (keep only essential)
+quick_start.py
+run_demo.py
+run_iterative_demo.py
+check_packages.py
+show_setup_help.py
+setup_venv.bat
+run_project.bat
+generate_visualizations.py
+01_eda_preprocessing.py
