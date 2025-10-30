@@ -269,41 +269,41 @@ pip install -r requirements.txt
 
 ## 🏃 Running the Project
 
-### Complete End-to-End Pipeline
+### Option 1: Run Complete Pipeline (Recommended)
+
+```bash
+python main.py
+```
+
+**This runs all 4 tasks in sequence:**
+1. Task 1: EDA & Preprocessing
+2. Task 2: Deep Learning Model
+3. Task 3: Offline RL Agent
+4. Task 4: Analysis & Comparison
+
+### Option 2: Run Individual Tasks
+
+```bash
+# Task 1: Data preprocessing
+python task1_eda_preprocessing.py
+
+# Task 2: Deep Learning model
+python task2_deep_learning.py
+
+# Task 3: Offline RL agent
+python task3_offline_rl.py
+
+# Task 4: Analysis and comparison
+python task4_analysis.py
+```
+
+### Option 3: Use Complete Monolithic Script
 
 ```bash
 python complete_project.py
 ```
 
-**This script performs all 4 tasks:**
-
-1. **Task 1: EDA & Preprocessing**
-   - Loads dataset (2.26M rows)
-   - Analyzes features and distributions
-   - Creates binary target (0=Paid, 1=Default)
-   - Engineers 63+ features
-   - Handles missing values
-   - Standardizes features
-
-2. **Task 2: Deep Learning Model**
-   - Builds 6-layer MLP with 82+ advanced techniques
-   - Trains with Lion optimizer (Google 2023)
-   - Applies regularization and augmentation
-   - Evaluates with AUC-ROC and F1-Score
-   - Generates performance metrics
-
-3. **Task 3: Offline RL Agent**
-   - Formulates MDP (state, action, reward)
-   - Trains Q-network with Conservative Q-Learning
-   - Learns optimal approval policy
-   - Calculates Expected Policy Value
-   - Optimizes for profitability
-
-4. **Task 4: Analysis & Comparison**
-   - Compares DL vs RL decisions
-   - Identifies disagreement cases
-   - Explains metric differences
-   - Provides future recommendations
+(Single file with all tasks - 4,087 lines)
 
 **Expected Runtime:** 30-60 minutes (GPU: ~15-20 min, CPU: ~45-90 min)
 
@@ -338,11 +338,24 @@ python complete_project.py
 
 ```
 ShodhAiLoanPredictor/
-├── complete_project.py              # Main implementation (4,087 lines)
-│   ├── Task 1: LoanDataProcessor class
-│   ├── Task 2: LoanDefaultMLP + DLModelTrainer classes
-│   ├── Task 3: OfflineRLAgent + OfflineRLTrainer classes
-│   └── Task 4: ModelComparison class
+├── main.py                          # Main pipeline (run all tasks)
+│
+├── task1_eda_preprocessing.py       # Task 1: EDA and data preprocessing
+│   └── LoanDataProcessor class
+│
+├── task2_deep_learning.py           # Task 2: Deep Learning model
+│   ├── LoanDefaultMLP class (MLP architecture)
+│   └── DLModelTrainer class (training & evaluation)
+│
+├── task3_offline_rl.py              # Task 3: Offline RL agent
+│   ├── OfflineRLDataset class (MDP formulation)
+│   ├── SimpleOfflineRLAgent class (Q-Network)
+│   └── OfflineRLTrainer class (training & policy evaluation)
+│
+├── task4_analysis.py                # Task 4: Analysis and comparison
+│   └── ModelComparison class (DL vs RL analysis)
+│
+├── complete_project.py              # Complete monolithic version (alternative)
 │
 ├── README.md                        # This file (setup & usage)
 ├── requirements.txt                 # Python dependencies
@@ -358,7 +371,9 @@ ShodhAiLoanPredictor/
 
 ## 🔍 Code Organization
 
-### Task 1: EDA & Preprocessing (Lines 550-810)
+### Modular Structure (Recommended)
+
+**Task 1: EDA & Preprocessing** (`task1_eda_preprocessing.py`)
 ```python
 class LoanDataProcessor:
     - load_data()              # Load CSV with selected features
@@ -368,41 +383,45 @@ class LoanDataProcessor:
     - prepare_features()       # Engineer 63+ features
 ```
 
-### Task 2: Deep Learning Model (Lines 813-2900)
+**Task 2: Deep Learning Model** (`task2_deep_learning.py`)
 ```python
 class LoanDefaultMLP(nn.Module):
     - 6 hidden layers [768, 512, 384, 256, 128, 64]
-    - 82+ techniques (attention, residual, regularization)
     - Multi-head attention, Mish activation
-    - Fourier features, contrastive pretraining
+    - Residual connections, Batch normalization
 
 class DLModelTrainer:
-    - train_until_convergence()   # Auto-trains to convergence
-    - evaluate_ensemble()         # AUC, F1, Precision, Recall
-    - monte_carlo_dropout()       # Uncertainty quantification
+    - train_until_convergence()   # Auto-trains with early stopping
+    - evaluate()                  # AUC, F1, Precision, Recall
+    - save_model() / load_model() # Model persistence
 ```
 
-### Task 3: Offline RL Agent (Lines 3046-3535)
+**Task 3: Offline RL Agent** (`task3_offline_rl.py`)
 ```python
 class OfflineRLDataset:
     - Converts supervised data to (s, a, r, s', done) tuples
     
 class SimpleOfflineRLAgent(nn.Module):
     - Q-network: state → Q(s,a) for approve/deny
-    - Conservative Q-Learning penalty
     
 class OfflineRLTrainer:
-    - train_agent()        # Fitted Q-iteration
+    - train_agent()        # Fitted Q-iteration with CQL
     - evaluate_policy()    # Calculate policy value
+    - save_agent() / load_agent() # Agent persistence
 ```
 
-### Task 4: Analysis & Comparison (Lines 3536-3705)
+**Task 4: Analysis & Comparison** (`task4_analysis.py`)
 ```python
 class ModelComparison:
-    - compare_decisions()          # Agreement analysis
-    - explain_metrics()            # AUC vs Policy Value
+    - compare_decisions()          # Agreement & disagreement analysis
+    - explain_metrics()            # AUC vs Policy Value explained
     - future_recommendations()     # Limitations & next steps
+    - generate_report()            # Comprehensive report
 ```
+
+### Alternative: Monolithic Version
+
+For reference, `complete_project.py` contains all functionality in a single file (4,087 lines).
 
 ---
 
