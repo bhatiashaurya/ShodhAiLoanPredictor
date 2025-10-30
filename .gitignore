@@ -37,8 +37,8 @@ env/
 *~
 
 # Data files (large dataset)
-shodhAI_dataset/
-*.csv
+# shodhAI_dataset/  # Uncommenting to include dataset
+# *.csv  # Uncommenting to include CSV files
 *.parquet
 *.feather
 
