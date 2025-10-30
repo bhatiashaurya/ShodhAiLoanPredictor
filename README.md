@@ -23,20 +23,36 @@ As a Research Scientist at a fintech company, the goal is to improve the loan ap
 
 ---
 
+## Dataset Setup
+
+**Important:** The dataset is not included in this repository due to its large size (1.6GB).
+
+### Download the Dataset:
+
+1. Go to Kaggle: [LendingClub Loan Data](https://www.kaggle.com/datasets/wordsforthewise/lending-club)
+2. Download `accepted_2007_to_2018Q4.csv`
+3. Create the following directory structure in the project:
+   ```
+   ShodhAI/
+   └── shodhAI_dataset/
+       └── accepted_2007_to_2018q4.csv/
+           └── accepted_2007_to_2018Q4.csv
+   ```
+4. Place the downloaded CSV file in the path shown above
+
 ## Project Structure
 
 ```
 ShodhAI/
 │
-├── shodhAI_dataset/
+├── shodhAI_dataset/              # Create this folder
 │   └── accepted_2007_to_2018q4.csv/
-│       └── accepted_2007_to_2018Q4.csv  (~1.6GB)
+│       └── accepted_2007_to_2018Q4.csv  (~1.6GB - download from Kaggle)
 │
 ├── complete_project.py           # Complete implementation
-├── loan_analysis_ml_rl.ipynb     # Jupyter notebook (interactive)
-├── 01_eda_preprocessing.py       # Standalone EDA script
-│
-└── README.md                     # This file
+├── README.md                     # This file
+├── requirements.txt              # Python dependencies
+└── TASK_VERIFICATION_REPORT.md  # Task completion analysis
 ```
 
 ---
