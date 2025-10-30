@@ -1,5 +1,19 @@
 # Loan Default Prediction: Deep Learning vs Offline Reinforcement Learning
 
+## 🎯 Quick Start for Evaluators
+
+**Want to see the results without running code?**  
+👉 **Open [RESULTS_VISUALIZATION.ipynb](./RESULTS_VISUALIZATION.ipynb)** for a comprehensive visual dashboard with:
+- 📊 Model performance comparisons
+- 📈 ROC curves and confusion matrices
+- 🤝 DL vs RL decision agreement analysis
+- 💰 Profitability analysis
+- 📋 Real case study examples
+
+**Full Report:** [FINAL_REPORT.md](./FINAL_REPORT.md) (2-3 pages, all Task 4 questions answered)
+
+---
+
 ## Project Overview
 
 This project implements an end-to-end machine learning solution for loan approval decision-making, comparing two fundamentally different approaches:
